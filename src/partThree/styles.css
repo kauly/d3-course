@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.svgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 500px;
+  background-color: #535c68;
+}
+
+#tooltip {
+  display: none;
+  position: absolute;
+  width: 75px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+rect:hover {
+  cursor: pointer;
+}
+
+.axis path,
+line {
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-weight: bold;
+  font-size: 12px;
+}

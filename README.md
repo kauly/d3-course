@@ -1,22 +1,3 @@
-# HTML Boilerplate
+# d3 course
 
-A simple boilerplate for projects without react. 
-
-## Loaders
-
-* CSS
-* Images
-
-## Running
-
-For development
-
-```
-yarn && yarn dev
-```
-
-Production
-
-```
-yarn && yarn build
-```
+Exercises from  [that]([that](https://www.udemy.com/course/learn-d3js-for-data-visualization)) d3 course. A very good course.

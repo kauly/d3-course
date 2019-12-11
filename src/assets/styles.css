@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.graphContainer {
+  display: flex;
+  align-items: flex-end;
+  width: 800px;
+  height: 600px;
+  background-color: #535c68;
+}
+
+.bar {
+  display: inline-block;
+  width: 25px;
+  height: 300px;
+  border: 1px solid #000;
+  background-color: #78e08f;
+}
+
+.axis path,
+line {
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-weight: bold;
+  font-size: 12px;
+}

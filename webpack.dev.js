@@ -1,9 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: "./src/app.js",
+  entry: "./src/partFive/simpleMap.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "bundle.js"
@@ -12,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|gif|cow)$/i,
+        test: /\.(png|jpe?g|gif|csv)$/i,
         use: [
           {
             loader: "file-loader"
@@ -25,7 +26,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"]
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-transform-runtime"]
           }
         }
       },
@@ -38,13 +40,20 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist",
-    hot: true
+    contentBase: path.join(__dirname, "dist"),
+    hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization"
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: "D3"
-    })
+    }),
+    new CopyWebpackPlugin([{ from: "src/assets", to: "dist/assets" }])
   ]
 };
